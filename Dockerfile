@@ -6,6 +6,8 @@ RUN curl -sSL -O https://get.docker.com/builds/Linux/x86_64/docker-1.10.3.tgz &&
 
 COPY startup.sh /startup.sh
 
-ENTRYPOINT /startup.sh
+ENTRYPOINT /bin/sh
+
+CMD ["/startup.sh", "arg1", "arg2"]
 
 
