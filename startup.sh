@@ -1,7 +1,5 @@
 #!/bin/sh
 set -e
-SECRET_KEY = $1
-SLAVE_NAME = $2
 
 JUSER="jenkins"
 
