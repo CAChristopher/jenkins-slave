@@ -4,9 +4,9 @@ env
 
 JUSER="jenkins"
 
-SECRET="$JENKINS_SECRET"
-JNLP_URL="$JENKINS_JNLP_URL"
-URL="$JENKINS_URL"
+# SECRET="$JENKINS_SECRET"
+# JNLP_URL="$JENKINS_JNLP_URL"
+# URL="$JENKINS_URL"
 
 DOCKER_GID=$(ls -aln /var/run/docker.sock  | awk '{print $4}')
 
@@ -33,8 +33,8 @@ if ! id -nG "$JUSER" | grep -qw "$DOCKER_GROUP"; then
 	adduser $JUSER $DOCKER_GROUP
 fi
 
-exec su $JUSER -c "export JENKINS_SECRET=$SECRET"
-exec su $JUSER -c "export JENKINS_URL=$URL"
-exec su $JUSER -c "export JENKINS_JNLP_URL=$JNLP_URL"
+# exec su $JUSER -c "export JENKINS_SECRET=$SECRET"
+# exec su $JUSER -c "export JENKINS_URL=$URL"
+# exec su $JUSER -c "export JENKINS_JNLP_URL=$JNLP_URL"
 
-exec su $JUSER -c "/usr/local/bin/jenkins-slave"
+exec su $JUSER -c "/usr/local/bin/jenkins-slave $JENKINS_SECRET $HOSTNAME"
