@@ -2,8 +2,6 @@
 
 env
 
-set -e
-
 JUSER="jenkins"
 
 SECRET="$JENKINS_SECRET"
@@ -39,4 +37,4 @@ exec su $JUSER -c "export JENKINS_SECRET=$SECRET"
 exec su $JUSER -c "export JENKINS_URL=$URL"
 exec su $JUSER -c "export JENKINS_JNLP_URL=$JNLP_URL"
 
-exec su $JUSER -c "/usr/local/bin/jenkins-slave $JENKINS_SECRET $SLAVE_NAME"
+exec su $JUSER -c "/usr/local/bin/jenkins-slave"
