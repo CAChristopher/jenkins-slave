@@ -6,5 +6,7 @@ RUN curl -sSL -O https://get.docker.com/builds/Linux/x86_64/docker-1.10.3.tgz &&
 
 COPY startup.sh /startup.sh
 
-RUN ./startup.sh
+RUN /startup.sh
+
+USER jenkins
 
