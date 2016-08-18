@@ -1,5 +1,7 @@
 #!/bin/sh
 set -e
+SECRET_KEY = $1
+SLAVE_NAME = $2
 
 JUSER="jenkins"
 
@@ -28,4 +30,4 @@ if ! id -nG "$JUSER" | grep -qw "$DOCKER_GROUP"; then
 	adduser $JUSER $DOCKER_GROUP
 fi
 
-exec su $JUSER -c "/usr/local/bin/jenkins-slave"
+exec su $JUSER -c "/usr/local/bin/jenkins-slave $SECRET_KEY $SLAVE_NAME"
